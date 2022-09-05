@@ -1,3 +1,4 @@
+import 'package:all_persistence_types/sqlite/models/person.dart';
 import 'package:flutter/material.dart';
 
 class AddPerson extends StatelessWidget {
@@ -6,6 +7,7 @@ class AddPerson extends StatelessWidget {
   final Text title = const Text("Nova Pessoa");
   final EdgeInsets padding = const EdgeInsets.all(16);
   
+  //Usar os caras abaixo auxiliam nos callbacks
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -69,7 +71,11 @@ class AddPerson extends StatelessWidget {
                   child: const Text("Gravar"),
                   onPressed: () {
                     if(_formKey.currentState!.validate()){
-                      
+                      Person person = Person(
+                        firstName: _nameController.text, 
+                        lastName: _lastNameController.text, 
+                        address: _addressController.text);
+                        Navigator.pop(context, person);
                     }
                     
                   },
