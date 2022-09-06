@@ -61,7 +61,6 @@ class ListSQLiteWidgetState extends State<ListSQLiteWidget> {
                     .then((person) {
                   setState(() {
                     insertPerson(person);
-                    getAllPersons();
                   });
                 });
               }),

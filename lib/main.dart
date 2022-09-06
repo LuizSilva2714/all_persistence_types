@@ -1,10 +1,14 @@
+import 'package:all_persistence_types/firebase/list.dart';
 import 'package:all_persistence_types/screens/home.dart';
 import 'package:all_persistence_types/sqlite/list.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:all_persistence_types/firebase_options.dart';
 import 'package:all_persistence_types/floor/list.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -33,6 +37,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const HomeWidget(),
         "/sqlite": (context) => const ListSQLiteWidget(),
         "/floor": (context) => const ListFloorWidget(),
+        "/firebase": (context) => const ListCarFirestoreWidget()
       },
     );
   }
