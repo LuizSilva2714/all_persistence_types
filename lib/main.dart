@@ -2,6 +2,8 @@ import 'package:all_persistence_types/screens/home.dart';
 import 'package:all_persistence_types/sqlite/list.dart';
 import 'package:flutter/material.dart';
 
+import 'package:all_persistence_types/floor/list.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,7 +31,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => const HomeWidget(),
-        "/sqlite": (context) => ListSQLiteWidget(),
+        "/sqlite": (context) => const ListSQLiteWidget(),
+        "/floor": (context) => const ListFloorWidget(),
       },
     );
   }

@@ -19,9 +19,8 @@ class PersonDao{
     final db = await getDatabase();
     List<Map<String, dynamic>> maps = await db.query("Person");
     final result = List.generate(maps.length, (index){
-      final id = maps[index]['id'];
       return Person(
-        id: int.tryParse(id),
+        id: maps[index]['id'],
         firstName: maps[index]['firstName'], 
         lastName: maps[index]['lastName'], 
         address: maps[index]['address']
